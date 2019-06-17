@@ -5,17 +5,16 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Startup extends Resource
+class MediaPartner extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = 'App\Startup';
+    public static $model = 'App\MediaPartner';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -33,6 +32,11 @@ class Startup extends Resource
         'id',
     ];
 
+    public static function label()
+    {
+        return 'Media Partners';
+    } 
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -44,17 +48,17 @@ class Startup extends Resource
         return [
             ID::make()->sortable(),
 
-            Text::make("Name"),
+            Text::make('First Name', 'first_name'),
+
+            Text::make('Last Name', 'last_name'),
+
+            Text::make('Platform Name', 'platform_name'),
 
             Text::make('Email')->hideFromIndex(),
 
-            Text::make('Description')->hideFromIndex(),
+            Text::make('Phone')->hideFromIndex(),
 
-            Text::make('Country')->hideFromIndex(),
-            
-            Text::make("Website", "website_url"),
-
-            Boolean::make('Status'),
+            Text::make('Website URL', 'website_url')->hideFromIndex()
         ];
     }
 
@@ -79,11 +83,6 @@ class Startup extends Resource
     {
         return [];
     }
-
-    public static function label()
-    {
-        return 'Startups';
-    } 
 
     /**
      * Get the lenses available for the resource.

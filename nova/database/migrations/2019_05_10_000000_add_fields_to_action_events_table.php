@@ -14,8 +14,8 @@ class AddFieldsToActionEventsTable extends Migration
     public function up()
     {
         Schema::table('action_events', function (Blueprint $table) {
-            $table->json('original')->nullable();
-            $table->json('changes')->nullable();
+            $table->text('original')->nullable();
+            $table->text('changes')->nullable();
         });
     }
 
