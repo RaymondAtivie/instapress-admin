@@ -54,6 +54,7 @@ class BrandOwner extends Resource
             Text::make('Last Name', 'last_name'),
             Text::make('Brand Name', 'brand_name'),
             Text::make('Email')->hideFromIndex(),
+            Text::make('Password')->onlyOnDetail(),
             Text::make('Mobile Number', 'mobile_number')->hideFromIndex(),
             Date::make('Last Login', 'last_login'),
 

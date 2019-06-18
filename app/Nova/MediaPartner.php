@@ -55,6 +55,7 @@ class MediaPartner extends Resource
             Text::make('Platform Name', 'platform_name'),
 
             Text::make('Email')->hideFromIndex(),
+            Text::make('Password')->onlyOnDetail(),
 
             Text::make('Phone')->hideFromIndex(),
 
